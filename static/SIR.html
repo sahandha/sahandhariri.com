@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SIR Interface</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/SIR.png"/>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/round-about.css" rel="stylesheet">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+
+  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+</head>
+
+<body style="background-color:#e8e8e8">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <!--a class="navbar-brand" href="#">SIR</a-->
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <div class=container>
+    <h3>The SIR model:</h3>
+    <p>
+      The initial aim of the project was to get familiar agent-based modeling. I decided the SIR model was a good little simple problem to consider for this project. Historically this model is a compartmental model which uses Lotka-Voltera like euations. It assumes complete spatial homogineity and mixing of the population. I figured I can use an agent-based model to capture the results of this model and then go beyind and look at effects of spacial variation in the results.
+    </p>
+    <hr>
+    <h3>The Equations:</h3>
+    <p>
+      The SIR model is as follows:
+    </p>
+    <p>
+      $$\begin{eqnarray}
+      \dot{S} &=& -\beta S I      \nonumber \\
+      \dot{I} &=& \beta I S - \gamma I \nonumber \\
+      \dot{R} &=& \gamma I    \nonumber
+      \end{eqnarray}$$
+    </p>
+    <p>
+      $S$ represents the population of susceptible people, $I$ represents the population of infected people, and $R$ represents the population of removed or recovered people.
+    </p>
+
+    <hr>
+    <div class=container-fluid>
+      <div class="col text-center">
+        <a href = ./SIR_Interface.html>
+          <img class="img-circle img-responsive img-center" src="./images/Faroe_map.png" alt="">
+        </a>
+        <a href = ./SIR_Interface.html>
+          <p><font color="#f4851e" size=5><b>Run the simulation</b></font></p>
+        </a>
+      </div>
+    </div>
+
+    <hr>
+    <h3>To do:</h3>
+      <ul>
+        <li>Add a Move() function where it will compute the $(x,y)$ motion, based on disease state, and motion bias, and whatever else. This will then produce the motion parameters in polar coordinates and call Move($r$,$\theta$).</li>
+        <li>Define different behavior for different social groups (age, gender, etc...)</li>
+        <li>Make a `Makefile` from the xcode project.</li>
+        <li>Add a Javascript frontend to my project.</li>
+        <li>Write some documentation.</li>
+        <li>Add homes and work places to the Island model.</li>
+        <li>Figure out the network stuff for measuring spatial distributions.</li>
+      </ul>
+    <hr>
+    <h3>Notes:</h3>
+
+    <p>In order to compile from the command line, I do `xcodebuild` in the project folder. It then compiles and generates a `build` folder. From there, the executable is in `/Release/`.</p>
+
+    <p>
+      This guy is claiming to have solved the problem using <a href="http://rdingwall.com/2007/04/08/generating-a-makefile-from-xcode/" target="_blank">pbtomake</a> which is a third party software.
+    </p>
+    <p>
+      Also, <a href="https://cmake.org/Wiki/CMake" target="_blank">CMake</a> helps you create Makefiles and it will be portable to xcode and other forms. Kind of the other direction, but could be usefule for future. This <a href="https://code.google.com/archive/p/cpp-project-template" target="_blank"/>guy</a> has <a href="https://code.google.com/archive/p/cpp-library-project-template/" target="_blank">examples</a>.
+    </p>
+  </div>
+
+</body>

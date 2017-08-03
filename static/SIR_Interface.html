@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SIR Interface</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/SIR.png"/>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/round-about.css" rel="stylesheet">
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+
+  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <style>
+  body {
+    background: #ffffff url("./images/Faroe_map_background.png") no-repeat right top fixed;
+    background-size: 100% 100%;
+  }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#">SIR</a>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <div class=container>
+    <p><a href="/Users/sahand/Research/SIR/Documentation/DOX/output/html/index.html" target="_blank">Project Documentation</a></p>
+
+    <p>In order to compile from the command line, I do `xcodebuild` in the project folder. It then compiles and generates a `build` folder. From there, the executable is in `/Release/`.</p>
+
+    <p>
+      This guy is claiming to have solved the problem using <a href="http://rdingwall.com/2007/04/08/generating-a-makefile-from-xcode/" target="_blank">pbtomake</a> which is a third party software.
+    </p>
+    <p>
+      Also, <a href="https://cmake.org/Wiki/CMake" target="_blank">CMake</a> helps you create Makefiles and it will be portable to xcode and other forms. Kind of the other direction, but could be usefule for future. This <a href="https://code.google.com/archive/p/cpp-project-template" target="_blank"/>guy</a> has <a href="https://code.google.com/archive/p/cpp-library-project-template/" target="_blank">examples</a>.
+    </p>
+  </div>
+
+  <div class=container>
+    <hr>
+
+    <h3>Domain Information</h3>
+      <form action="demo_form.asp">
+        <table>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>Max dim: </td>
+          <td><input type="int" name="maxdim" value=115><br></td>
+        </tr>
+        <tr>
+          <td>Boundary: </td>
+          <td><input type="text" name="Boundary" value="{{0, 90},{0, 100}}"><br></tr>
+          </tr>
+          <tr>
+            <td>Domain Name: </td>
+            <td><input type="text" name="domainname" value="Faroe"><br></td>
+          </tr>
+          <tr>
+            <td>Max dim: </td>
+            <td><input type="int" name="maxdim" value=115><br></td>
+          </tr>
+        </table>
+
+    <hr>
+
+    <h3>Population Data</h3>
+
+      <table>
+        <tr>
+          <th></th>
+          <th>Mean</th>
+          <th>Variance</th>
+        </tr>
+        <tr>
+          <td>Age: </td>
+          <td><input type="int" name="ageMean" value=40><br></td>
+          <td><input type="int" name="ageVar" value=30><br></td>
+        </tr>
+        <tr>
+          <td>Susceptability: </td>
+          <td><input type="double" name="susMean" value=3.0><br></td>
+          <td><input type="double" name="susVar" value=0.1><br></td>
+        </tr>
+        <tr>
+          <td>Initial Condition: </td>
+          <td><input type="double" name="icMean" value=2.0><br></td>
+          <td><input type="double" name="icVar" value=0.1><br></td>
+        </tr>
+        <tr>
+          <td>T-Cell decay rate ($\beta$): </td>
+          <td><input type="double" name="betaMean" value=0.5><br></td>
+          <td><input type="double" name="betaVar" value=0.05><br></td>
+        </tr>
+        <tr>
+          <td>I-Cell decay rate ($\delta$): </td>
+          <td><input type="double" name="deltaMean" value=0.5><br></td>
+          <td><input type="double" name="deltaVar" value=0.05><br></td>
+        </tr>
+        <tr>
+          <td>Growth rate of virions ($P$): </td>
+          <td><input type="double" name="PMean" value=0.2><br></td>
+          <td><input type="double" name="PVar" value=0.05><br></td>
+        </tr>
+        <tr>
+          <td>Decay rate of virions ($C$): </td>
+          <td><input type="double" name="CMean" value=0.2><br></td>
+          <td><input type="double" name="CVar" value=0.05><br></td>
+        </tr>
+        </table>
+
+    <hr>
+
+    <h3>Controller information</h3>
+
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Initial time: </td>
+            <td><input type="int" name="maxdim" value=0><br></td>
+          </tr>
+          <tr>
+            <td>Time step: </td>
+            <td><input type="double" name="Boundary" value="1"><br></tr>
+            </tr>
+            <tr>
+              <td>End time: </td>
+              <td><input type="double" name="domainname" value="36000"><br></td>
+            </tr>
+            <tr>
+              <td>Simulation version: </td>
+              <td><input type="int" name="maxdim" value=1><br></td>
+            </tr>
+            <tr>
+              <td>Show visualization: </td>
+              <td><select name="Show visualization">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select></td>
+            </tr>
+            <tr>
+              <td>Save data to mysql: </td>
+              <td><select name="Save to mysql">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select></td>
+            </tr>
+          </table>
+    <hr>
+    <input type="submit" value="Submit">
+    </form>
+  </div>
+  <hr>
+
+</body>
