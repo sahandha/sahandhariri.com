@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tornado
+  namespace: tornado
+spec:
+  ports:
+    - port: 8888
+      targetPort: 8888
+      nodePort: 30000
+  selector:
+    component: tornado
+  type: NodePort
+
