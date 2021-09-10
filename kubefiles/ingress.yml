@@ -1,0 +1,19 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: tornado
+  annotations:
+    k8s.io/ingress.class: nginx
+
+spec:
+  rules:
+    - host: sahand-psi.com
+      http:
+        paths:
+          - path: /home
+            pathType: Exact
+            backend:
+              service:
+                name: tornado
+                port: 
+                  number: 80

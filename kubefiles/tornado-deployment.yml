@@ -1,25 +1,23 @@
-kind: ReplicationController
-apiVersion: v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: tornado-controller
-  namespace: tornado
+  name: tornado
+  labels:
+    app: tornado
 spec:
-  replicas: 1
+  replicas: 2
   selector:
-    component: tornado
+    matchLabels:
+      app: tornado
   template:
     metadata:
       labels:
-        component: tornado
+        app: tornado
     spec:
       containers:
         - name: tornado
           image: sahandha/personalwebpage
-          imagePullPolicy: Always
           command: ["python","server.py"]
           ports:
             - containerPort: 8888 
-          resources:
-            requests:
-              cpu: 100m
 
